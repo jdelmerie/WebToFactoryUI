@@ -27,3 +27,13 @@ export const getTodoDetail = createAction(
     'Get Todo Detail',
     props<{ id: number }>()
 )
+
+export const addNewTodo = createAction(
+    'Add New Todo',
+    props<{ todo: Todo }>()
+)
+
+export const addNewTodoSuccess = createAction(
+    'Add New Todo Success',
+    props<{ todo: Todo }>()
+)

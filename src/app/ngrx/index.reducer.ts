@@ -1,5 +1,5 @@
 import { ActionReducer, MetaReducer, createReducer, Action, on } from "@ngrx/store";
-import { initAction } from "./todo.actions";
+import { addNewTodoSuccess, initAction } from "./todo.actions";
 
 export const ROOT_FEATURE_KEY = 'root';
 
@@ -38,5 +38,5 @@ export const rootReducer = createReducer<RootState, Action>(
         return {
             ...state,
         }
-    }),
+    })
 );

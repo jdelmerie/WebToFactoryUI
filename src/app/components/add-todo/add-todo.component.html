@@ -1,0 +1,21 @@
+<div class="mt-5">
+    <h3>Add a todo</h3>
+    <form [formGroup]="myForm" (ngSubmit)="saveTodo(myForm)">
+        <div class="">
+            <input type="hidden" class="form-control" id="id" formControlName="id" />
+        </div>
+        <div class="">
+            <label for="todoTile" class="form-label">Title</label>
+            <input type="text" class="form-control" id="todoTile" formControlName="title" />
+            <span class="text-danger" *ngIf="myForm.get('title')?.errors">{{error}}</span>
+        </div>
+        <div class="mb-3">
+            <label for="todoDescription" class="form-label">Description</label>
+            <textarea class="form-control" id="todoDescription" rows="3" formControlName="description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">
+            Ajouter
+        </button>
+    </form>
+
+</div>

@@ -8,17 +8,19 @@ import { TodolistComponent } from './components/todolist/todolist.component';
 import { TodolistService } from './services/todolist.service';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TodoEffects } from './ngrx/todo.effects';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { todoReducer } from './ngrx/todo.reducer';
 import { metaReducers, rootReducer, ROOT_FEATURE_KEY } from './ngrx/index.reducer';
 import { TododetailComponent } from './components/tododetail/tododetail.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AddTodoComponent } from './components/add-todo/add-todo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodolistComponent,
-    TododetailComponent
+    TododetailComponent,
+    AddTodoComponent
   ],
   imports: [
     AppRoutingModule,
@@ -28,7 +30,8 @@ import { AppRoutingModule } from './app-routing.module';
     EffectsModule.forRoot([TodoEffects]),
     StoreDevtoolsModule.instrument({}),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [TodolistService],
   bootstrap: [AppComponent]
