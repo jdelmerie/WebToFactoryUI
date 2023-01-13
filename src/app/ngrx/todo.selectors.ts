@@ -1,7 +1,10 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { RootState, ROOT_FEATURE_KEY } from "./todo.reducer";
+import { Todo } from "../models/todo.model";
+import { RootState, ROOT_FEATURE_KEY } from "./index.reducer";
 
 const selectRoot = createFeatureSelector<RootState>(ROOT_FEATURE_KEY);
+
+export const selectorTodos = createFeatureSelector<Todo[]>('todos');
 
 export const getAppName = createSelector(
     selectRoot,
@@ -9,8 +12,8 @@ export const getAppName = createSelector(
 );
 
 export const getAllTodos = createSelector(
-    selectRoot,
-    (state) => state.todos
+    selectorTodos,
+    (state) => state
 )
 
 export const getError = createSelector(

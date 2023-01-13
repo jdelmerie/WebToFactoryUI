@@ -11,7 +11,18 @@ export class TodolistService {
 
   constructor(private http: HttpClient) { }
 
-  getTodoList() {
+  /**
+   * Get all todos
+   */
+  public getTodoList() {
     return this.http.get<Todo[]>(environment.host + '/todos');
   }
+
+  /**
+   * Update todo state
+   */
+  public updateTodoState(todo: Todo) {
+    return this.http.put<Todo>(environment.host + '/updateTodoState/' + todo.id, todo);
+  }
+
 }

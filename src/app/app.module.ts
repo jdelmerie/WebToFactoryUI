@@ -6,9 +6,11 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { TodolistComponent } from './components/todolist/todolist.component';
 import { TodolistService } from './services/todolist.service';
-import { rootReducer, metaReducers, ROOT_FEATURE_KEY } from './ngrx/todo.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TodoEffects } from './ngrx/todo.effects';
+import { FormsModule } from '@angular/forms';
+import { todoReducer } from './ngrx/todo.reducer';
+import { metaReducers, rootReducer, ROOT_FEATURE_KEY } from './ngrx/index.reducer';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,11 @@ import { TodoEffects } from './ngrx/todo.effects';
   imports: [
     BrowserModule,
     StoreModule.forRoot({[ROOT_FEATURE_KEY]: rootReducer}, {metaReducers}),
+    StoreModule.forFeature('todos', todoReducer),
     EffectsModule.forRoot([TodoEffects]),
     StoreDevtoolsModule.instrument({}),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [TodolistService],
   bootstrap: [AppComponent]
