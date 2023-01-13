@@ -22,3 +22,8 @@ export const updateTodoSucess = createAction(
     'Update Todo Sucess',
     props<{ updateTodo: Todo }>()
 )
+
+export const getTodoDetail = createAction(
+    'Get Todo Detail',
+    props<{ id: number }>()
+)

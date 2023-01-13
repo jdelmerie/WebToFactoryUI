@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { Todo } from "../models/todo.model";
-import { getTodoListSuccess, updateTodoSucess } from "./todo.actions";
+import {getTodoListSuccess, updateTodoSucess } from "./todo.actions";
 
 export const initialState: ReadonlyArray<Todo> = [];
 

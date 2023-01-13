@@ -1,5 +1,5 @@
 <div class="mt-5">
-    <h1 class="text-primary mb-3">{{title$ | async}}</h1>
+    <h3>List of todo</h3>
     <ng-container *ngIf="error$ | async as message">
         <div class="alert alert-danger" role="alert">
             {{message}}
@@ -9,10 +9,9 @@
         <ul>
             <li class="list-group-item" *ngFor="let todo of todos">
                 <div class="form-check" *ngIf="!todo.done">
-                    <input class="form-check-input" type="checkbox" value="" id="{{todo.id}}" [checked]="todo.done" (change)="onCheckboxChange($event, todo)">
-                    <label class="form-check-label" for="{{todo.id}}">
-                        {{todo.title}}
-                    </label>
+                    <input class="form-check-input" type="checkbox" [checked]="todo.done"
+                        (change)="onCheckboxChange($event, todo)">
+                    <a routerLink="/todo/{{todo.id}}" class="todo">{{todo.title}}</a>
                 </div>
             </li>
         </ul>
@@ -21,10 +20,9 @@
         <ul>
             <li class="list-group-item" *ngFor="let todo of todos">
                 <div class="form-check" *ngIf="todo.done">
-                    <input class="form-check-input" type="checkbox" value="" id="{{todo.id}}" [checked]="todo.done" (change)="onCheckboxChange($event, todo)">
-                    <label class="form-check-label" for="{{todo.id}}">
-                        <s>{{todo.title}}</s>
-                    </label>
+                    <input class="form-check-input" type="checkbox" [checked]="todo.done"
+                    (change)="onCheckboxChange($event, todo)">
+                <a routerLink="/todo/{{todo.id}}" class="todo"><s>{{todo.title}}</s></a>
                 </div>
             </li>
         </ul>

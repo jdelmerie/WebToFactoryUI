@@ -11,13 +11,17 @@ import { TodoEffects } from './ngrx/todo.effects';
 import { FormsModule } from '@angular/forms';
 import { todoReducer } from './ngrx/todo.reducer';
 import { metaReducers, rootReducer, ROOT_FEATURE_KEY } from './ngrx/index.reducer';
+import { TododetailComponent } from './components/tododetail/tododetail.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodolistComponent
+    TodolistComponent,
+    TododetailComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     StoreModule.forRoot({[ROOT_FEATURE_KEY]: rootReducer}, {metaReducers}),
     StoreModule.forFeature('todos', todoReducer),

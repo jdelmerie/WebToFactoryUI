@@ -3,8 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Todo } from 'src/app/models/todo.model';
 import { getTodoList, initAction, updateTodo } from 'src/app/ngrx/todo.actions';
-import { getAllTodos, getAppName, getError } from 'src/app/ngrx/todo.selectors';
-import { TodolistService } from 'src/app/services/todolist.service';
+import { getAllTodos, getError } from 'src/app/ngrx/todo.selectors';
 
 @Component({
   selector: 'app-todolist',
@@ -13,7 +12,7 @@ import { TodolistService } from 'src/app/services/todolist.service';
 })
 export class TodolistComponent implements OnInit {
 
-  title$: Observable<string> | undefined = this.store.select(getAppName);
+
   todos$: Observable<Todo[]> = this.store.select(getAllTodos);
   error$: Observable<String> = this.store.select(getError);
 
