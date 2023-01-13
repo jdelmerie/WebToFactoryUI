@@ -37,3 +37,13 @@ export const addNewTodoSuccess = createAction(
     'Add New Todo Success',
     props<{ todo: Todo }>()
 )
+
+export const deleteTodo = createAction(
+    'Delete Todo',
+    props<{ id: number }>()
+)
+
+export const deleteTodoSucess = createAction(
+    'Delete Todo Sucess',
+    props<{ id: number }>()
+)

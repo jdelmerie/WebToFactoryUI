@@ -12,7 +12,6 @@ import { getAllTodos, getError } from 'src/app/ngrx/todo.selectors';
 })
 export class TodolistComponent implements OnInit {
 
-
   todos$: Observable<Todo[]> = this.store.select(getAllTodos);
   error$: Observable<String> = this.store.select(getError);
 

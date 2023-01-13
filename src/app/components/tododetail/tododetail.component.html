@@ -4,8 +4,7 @@
         <div class="card-body">
             <h5 class="card-title">{{todo.title}}</h5>
             <p class="card-text">{{todo.description}}</p>
-            <!-- <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a> -->
+            <a class="btn btn-sm btn-danger" (click)="deleteTodo(todo.id)">Delete</a>
         </div>
     </div>
     <div class="mt-3">

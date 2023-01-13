@@ -25,11 +25,18 @@ export class TodolistService {
     return this.http.put<Todo>(environment.host + '/updateTodoState/' + todo.id, todo);
   }
 
-    /**
+  /**
    * Add new todo
    */
-    public addNewTodo(todo: Todo) {
-      return this.http.post<Todo>(environment.host + '/addNewTodo/', todo);
-    }
+  public addNewTodo(todo: Todo) {
+    return this.http.post<Todo>(environment.host + '/addNewTodo/', todo);
+  }
+
+  /**
+  * Add new todo
+  */
+  public deleteTodo(todoId: number) {
+    return this.http.delete<Todo>(environment.host + '/deleteTodo/' + todoId);
+  }
 
 }

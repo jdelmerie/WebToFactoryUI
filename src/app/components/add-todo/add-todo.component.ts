@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Todo } from 'src/app/models/todo.model';
 import { addNewTodo, getTodoList } from 'src/app/ngrx/todo.actions';
+import { getAllTodos } from 'src/app/ngrx/todo.selectors';
 
 @Component({
   selector: 'app-add-todo',
@@ -25,10 +26,7 @@ export class AddTodoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
-
-  resetForm() {
-    this.myForm.reset();
+   
   }
 
   saveTodo(myForm: FormGroup) {

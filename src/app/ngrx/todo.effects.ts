@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { mergeMap, map, catchError, EMPTY, switchMap } from "rxjs";
 import { Todo } from "../models/todo.model";
 import { TodolistService } from "../services/todolist.service";
-import { addNewTodo, addNewTodoSuccess, getTodoList, getTodoListSuccess, updateTodo, updateTodoSucess } from "./todo.actions";
+import { addNewTodo, addNewTodoSuccess, deleteTodo, getTodoList, getTodoListSuccess, updateTodo, updateTodoSucess } from "./todo.actions";
 
 @Injectable()
 export class TodoEffects {
@@ -39,6 +39,19 @@ export class TodoEffects {
                 .pipe(
                     map((data) => {
                         return addNewTodoSuccess({ todo: data });
+                    })
+                )
+        })
+    )
+    )
+
+    deleteTodo$ = createEffect(() => this.actions$.pipe(
+        ofType(deleteTodo),
+        switchMap((action) => {
+            return this.service.deleteTodo(action.id)
+                .pipe(
+                    map(() => {
+                        return deleteTodo({ id: action.id });
                     })
                 )
         })
