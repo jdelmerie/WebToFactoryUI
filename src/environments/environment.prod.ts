@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  hostMockedBackend: "https://github.com/jdelmerie/WebToFactoryUI:3000",
+  
 };

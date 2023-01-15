@@ -16,7 +16,7 @@
       "id": 3,
       "title": "Go to the doctor",
       "description": "Need to take an appointment before",
-      "done": false
+      "done": true
     }
   ]
 }
