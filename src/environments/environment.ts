@@ -5,8 +5,7 @@
 export const environment = {
   production: false,
   hostApi: "http://localhost:8080/api",
-  // hostMockedBackend: "http://localhost:3000",
-  hostMockedBackend: "https://my-json-server.typicode.com/jdelmerie/WebFactoryJson"
+  hostMockedBackend: "http://localhost:3000",
 };
 
 /*
