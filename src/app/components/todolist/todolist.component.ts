@@ -23,7 +23,9 @@ export class TodolistComponent implements OnInit {
   }
 
   onCheckboxChange(event: any, todo: Todo) {
-    this.store.dispatch(updateTodo({ updateTodo: todo }))
+    let clonedObject = { ...todo }
+    clonedObject = { ...clonedObject, done: !todo.done }
+    this.store.dispatch(updateTodo({ updateTodo: clonedObject }))
   }
 
 }

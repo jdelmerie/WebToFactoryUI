@@ -1,0 +1,22 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Write an article for my blog",
+      "description": "Will take about the year 1993",
+      "done": false
+    },
+    {
+      "id": 2,
+      "title": "Learn more about Angular",
+      "description": "NGRX",
+      "done": true
+    },
+    {
+      "id": 3,
+      "title": "Go to the doctor",
+      "description": "Need to take an appointment before",
+      "done": false
+    }
+  ]
+}

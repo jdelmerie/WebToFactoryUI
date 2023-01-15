@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  host: "http://localhost:8080/api"
+  hostApi: "http://localhost:8080/api",
+  hostMockedBackend: "http://localhost:3000",
 };
 
 /*
