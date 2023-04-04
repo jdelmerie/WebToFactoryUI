@@ -1,31 +1,40 @@
 <div class="mt-5">
-    <h3>List of todo</h3>
+    <h3>List of todos</h3>
     <ng-container *ngIf="error$ | async as message">
         <div class="alert alert-danger" role="alert">
             {{message}}
         </div>
     </ng-container>
-    <ng-container *ngIf="todos$ | async as todos">
-        <ul>
-            <li class="list-group-item" *ngFor="let todo of todos">
-                <div class="form-check" *ngIf="!todo.done">
-                    <input class="form-check-input" type="checkbox" [checked]="todo.done"
-                        (change)="onCheckboxChange($event, todo)">
-                    <a routerLink="/todo/{{todo.id}}" class="todo">{{todo.title}}</a>
-                </div>
+    <form class="col s12" [formGroup]="myForm" (ngSubmit)="saveTodo(myForm)">
+        <div class="row">
+            <div class="input-field col s6">
+                <input formControlName="title" id="title" type="text" class="validate" placeholder="Add a new task">
+                <span class="helper-text red-text text-darken-4" data-error="wrong" data-success="right"
+                    *ngIf="error">{{error}}</span>
+            </div>
+            <div class="input-field col s6">
+                <button class="btn waves-effect waves-light" type="submit">Add</button>
+            </div>
+        </div>
+    </form>
+    <ng-container *ngIf="checkedTodos$ || unCheckedTodos$">
+        <ul class="collection">
+            <li class="collection-item" *ngFor="let todo of unCheckedTodos$ | async">
+                <label>
+                    <input type="checkbox" [checked]="todo.done" (change)="onCheckboxChange($event, todo)"/>
+                    <span class="todo">
+                        <a routerLink="/todo/{{todo.id}}">{{todo.title}}</a>
+                    </span>
+                </label>
+            </li>
+            <li class="collection-item" *ngFor="let todo of checkedTodos$ | async">
+                <label>
+                    <input type="checkbox" [checked]="todo.done" (change)="onCheckboxChange($event, todo)"/>
+                    <span class="todo">
+                        <a routerLink="/todo/{{todo.id}}">{{todo.title}}</a>
+                    </span>
+                </label>
             </li>
         </ul>
     </ng-container>
-    <ng-container *ngIf="todos$ | async as todos">
-        <ul>
-            <li class="list-group-item" *ngFor="let todo of todos">
-                <div class="form-check" *ngIf="todo.done">
-                    <input class="form-check-input" type="checkbox" [checked]="todo.done"
-                    (change)="onCheckboxChange($event, todo)">
-                <a routerLink="/todo/{{todo.id}}" class="todo"><s>{{todo.title}}</s></a>
-                </div>
-            </li>
-        </ul>
-    </ng-container>
-    <app-add-todo></app-add-todo>
 </div>

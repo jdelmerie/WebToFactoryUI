@@ -14,33 +14,30 @@ export class TodolistService {
   /**
    * Get all todos
    */
-  public getTodoList() {
-    // return this.http.get<Todo[]>(environment.hostApi + '/todos');
-    return this.http.get<Todo[]>(environment.hostMockedBackend + '/todos');
+  public getTodoList(): Observable<Todo[]> {
+    return this.http.get<Todo[]>('api/todos');
   }
 
   /**
    * Update todo state
    */
-  public updateTodoState(todo: Todo) {
-    return this.http.put<Todo>(environment.hostMockedBackend + '/todos/' + todo.id, todo);
-    // return this.http.put<Todo>(environment.hostApi + '/updateTodoState/' + todo.id, todo);
+  public updateTodo(todo: Todo): Observable<Todo> {
+    return this.http.put<Todo>('api/todos/' + todo.id , todo);
   }
 
   /**
    * Add new todo
    */
-  public addNewTodo(todo: Todo) {
-    // return this.http.post<Todo>(environment.hostApi + '/addNewTodo/', todo);
-    return this.http.post<Todo>(environment.hostMockedBackend + '/todos/', todo);
+  public addNewTodo(todo: Todo): Observable<Todo> {
+    return this.http.post<Todo>('api/todos', todo);
   }
 
   /**
   * Add new todo
   */
   public deleteTodo(todoId: number) {
-    // return this.http.delete<Todo>(environment.hostApi + '/deleteTodo/' + todoId);
-    return this.http.delete<Todo>(environment.hostMockedBackend + '/todos/' + todoId);
+    return this.http.delete<Todo>('api/delete/' + todoId);
+    // return this.http.delete<Todo>(environment.hostMockedBackend + '/todos/' + todoId);
   }
 
 }

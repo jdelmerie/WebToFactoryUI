@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Todo } from 'src/app/models/todo.model';
-import { addNewTodo, getTodoList } from 'src/app/ngrx/todo.actions';
-import { getAllTodos } from 'src/app/ngrx/todo.selectors';
 
 @Component({
-  selector: 'app-add-todo',
-  templateUrl: './add-todo.component.html',
-  styleUrls: ['./add-todo.component.css']
+  selector: 'app-todo-form',
+  templateUrl: './todo-form.component.html',
+  styleUrls: ['./todo-form.component.css']
 })
-export class AddTodoComponent implements OnInit {
+export class TodoFormComponent implements OnInit {
 
   error: string = "";
   myForm: FormGroup;
@@ -26,16 +24,15 @@ export class AddTodoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   
+
   }
 
   saveTodo(myForm: FormGroup) {
     if (myForm.valid) {
       this.todo = { id: myForm.value.id, title: myForm.value.title, description: myForm.value.description, done: false };
-      this.store.dispatch(addNewTodo({ todo: { ...this.todo } }))
+      // this.store.dispatch(addNewTodo({ todo: { ...this.todo } }))
     } else {
       this.error = "Title is missing";
     }
   }
 }
-
